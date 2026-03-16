@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support — Be The Judge</title>
+<meta name="description" content="Get help with Be The Judge. FAQ, contact, and troubleshooting.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Crimson+Pro:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0b08;
+    --parchment: #f5f0e8;
+    --gold: #c9a84c;
+    --gold-dim: #7a6330;
+    --line: rgba(201,168,76,0.2);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--ink);
+    color: var(--parchment);
+    font-family: 'Crimson Pro', serif;
+    font-size: 18px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  header {
+    padding: 2rem clamp(1.5rem, 6vw, 6rem);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  header a {
+    color: rgba(245,240,232,0.5);
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  header a:hover { color: var(--gold); }
+
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 5rem clamp(1.5rem, 6vw, 3rem) 6rem;
+  }
+
+  .page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 900;
+    color: var(--parchment);
+    margin-bottom: 0.5rem;
+  }
+
+  .page-subtitle {
+    color: rgba(245,240,232,0.45);
+    font-style: italic;
+    margin-bottom: 4rem;
+    font-size: 1.1rem;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .faq + .faq { margin-top: 0; }
+
+  details {
+    border-bottom: 1px solid var(--line);
+  }
+
+  summary {
+    padding: 1.25rem 0;
+    cursor: pointer;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--parchment);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    transition: color 0.2s;
+    user-select: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary:hover { color: var(--gold); }
+
+  summary::after {
+    content: '+';
+    font-size: 1.4rem;
+    color: var(--gold-dim);
+    flex-shrink: 0;
+    transition: transform 0.2s;
+    font-weight: 300;
+  }
+  details[open] summary::after {
+    transform: rotate(45deg);
+    color: var(--gold);
+  }
+
+  .faq-body {
+    padding: 0 0 1.5rem;
+    color: rgba(245,240,232,0.6);
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .faq-body a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+  .faq-body a:hover { text-decoration: underline; }
+
+  .contact-block {
+    margin-top: 4rem;
+    padding: 2.5rem;
+    border: 1px solid var(--line);
+    background: rgba(201,168,76,0.03);
+    position: relative;
+  }
+
+  .contact-block::before {
+    content: '⚖';
+    position: absolute;
+    top: -1.2rem; left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.4rem;
+    background: var(--ink);
+    padding: 0 0.8rem;
+    color: var(--gold);
+  }
+
+  .contact-block h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    text-align: center;
+  }
+
+  .contact-block p {
+    color: rgba(245,240,232,0.55);
+    font-size: 0.95rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-email {
+    display: block;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    padding: 0.75rem;
+    border: 1px solid var(--line);
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .contact-email:hover {
+    background: rgba(201,168,76,0.08);
+    border-color: var(--gold-dim);
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    margin-top: 4rem;
+  }
+
+  .info-cell {
+    background: var(--ink);
+    padding: 1.5rem;
+  }
+
+  .info-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 0.4rem;
+  }
+
+  .info-value {
+    font-size: 0.95rem;
+    color: rgba(245,240,232,0.65);
+  }
+
+  .section-block { margin-bottom: 3rem; }
+
+  footer {
+    padding: 2.5rem clamp(1.5rem, 6vw, 6rem);
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  footer p { font-size: 0.8rem; color: rgba(245,240,232,0.25); }
+  footer a { font-size: 0.8rem; color: rgba(245,240,232,0.4); text-decoration: none; }
+  footer a:hover { color: var(--gold); }
+
+  @media (max-width: 500px) {
+    .info-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">Be The Judge</a>
+  <a href="index.html">← Back</a>
+</header>
+
+<main>
+  <h1 class="page-title">Support</h1>
+  <p class="page-subtitle">We're here to help. Find answers below or reach out directly.</p>
+
+  <!-- FAQ -->
+  <div class="section-block">
+    <div class="section-title">Frequently Asked Questions</div>
+
+    <details>
+      <summary>Is Be The Judge free to play?</summary>
+      <div class="faq-body">Yes. The game is free to download and play. It includes optional ads and optional in-app purchases. Core gameplay is always available without payment.</div>
+    </details>
+
+    <details>
+      <summary>My progress was lost. Can it be restored?</summary>
+      <div class="faq-body">Progress is saved locally on your device. If you reinstalled the app or switched devices, progress may not transfer automatically. We recommend not clearing app data. Cloud save support may be added in a future update.</div>
+    </details>
+
+    <details>
+      <summary>How do I remove ads?</summary>
+      <div class="faq-body">You can remove ads via the in-app purchase available in the game menu. This is a one-time purchase and persists across sessions on the same device.</div>
+    </details>
+
+    <details>
+      <summary>The game crashes or freezes. What should I do?</summary>
+      <div class="faq-body">
+        Try the following steps:<br><br>
+        1. Close and reopen the app<br>
+        2. Restart your device<br>
+        3. Make sure your OS is up to date<br>
+        4. Reinstall the app (note: this may reset progress)<br><br>
+        If the issue persists, contact us with your device model and OS version.
+      </div>
+    </details>
+
+    <details>
+      <summary>I was charged but didn't receive my purchase.</summary>
+      <div class="faq-body">Go to the in-app purchases section and tap "Restore Purchases." If the issue persists, contact us with your transaction receipt from the App Store or Google Play and we'll resolve it promptly.</div>
+    </details>
+
+    <details>
+      <summary>How do I request a refund?</summary>
+      <div class="faq-body">
+        Refunds are handled by the platform where you made the purchase:<br><br>
+        • <strong>iOS:</strong> <a href="https://reportaproblem.apple.com" target="_blank">reportaproblem.apple.com</a><br>
+        • <strong>Android:</strong> Open Google Play → Order history → Request a refund
+      </div>
+    </details>
+
+    <details>
+      <summary>How do I delete my data?</summary>
+      <div class="faq-body">Be The Judge does not collect personal data that requires deletion. All gameplay data is stored locally on your device. Uninstalling the app removes all local data. For questions about data handling, see our <a href="privacy-policy.html">Privacy Policy</a>.</div>
+    </details>
+
+    <details>
+      <summary>I found a bug or want to suggest a feature.</summary>
+      <div class="faq-body">We'd love to hear from you. Email us with a description of the bug or your idea. Include your device and OS version for bug reports — it helps us fix things faster.</div>
+    </details>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contact-block">
+    <h2>Still need help?</h2>
+    <p>Send us an email and we'll get back to you within 2–3 business days.</p>
+    <a href="mailto:support@bethejudge.app" class="contact-email">support@bethejudge.app</a>
+  </div>
+
+  <!-- INFO -->
+  <div class="info-grid">
+    <div class="info-cell">
+      <div class="info-label">Developer</div>
+      <div class="info-value">Igor Bogdanov</div>
+    </div>
+    <div class="info-cell">
+      <div class="info-label">Current Version</div>
+      <div class="info-value">1.0</div>
+    </div>
+    <div class="info-cell">
+      <div class="info-label">Platforms</div>
+      <div class="info-value">iOS · Android</div>
+    </div>
+    <div class="info-cell">
+      <div class="info-label">Response Time</div>
+      <div class="info-value">2–3 business days</div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>© 2025 Igor Bogdanov</p>
+  <div style="display:flex;gap:2rem;">
+    <a href="privacy-policy.html">Privacy Policy</a>
+    <a href="terms-of-use.html">Terms of Use</a>
+  </div>
+</footer>
+
+</body>
+</html>
